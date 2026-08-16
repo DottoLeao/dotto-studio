@@ -1,4 +1,7 @@
+"use client";
+
 import type { ComponentProps } from "react";
+import { motion, useReducedMotion } from "motion/react";
 
 type Variant = "signal" | "outlineBone" | "outlineInk" | "ink";
 
@@ -10,7 +13,11 @@ const VARIANTS: Record<Variant, string> = {
   ink: "bg-ink text-bone hover:bg-signal hover:text-ink",
 };
 
-type Props = ComponentProps<"a"> & {
+/** Os handlers de animação do DOM colidem em nome com os do Motion. */
+type Props = Omit<
+  ComponentProps<"a">,
+  "onAnimationStart" | "onAnimationEnd" | "onAnimationIteration" | "onDrag" | "onDragStart" | "onDragEnd" | "ref" | "style"
+> & {
   variant?: Variant;
   external?: boolean;
 };
@@ -22,10 +29,18 @@ export function ButtonLink({
   children,
   ...rest
 }: Props) {
+  const reduced = useReducedMotion();
+
   return (
-    <a
+    <motion.a
       {...rest}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : null)}
+      // Levantar no hover e ceder no toque. Spring curta e quase sem bounce:
+      // o overshoot é o que separa "responde ao dedo" de "brinquedo", e este
+      // é um site de estúdio de software.
+      whileHover={reduced ? undefined : { y: -2 }}
+      whileTap={reduced ? undefined : { y: 0, scale: 0.975 }}
+      transition={{ type: "spring", visualDuration: 0.22, bounce: 0.18 }}
       className={[
         // min-h-12 garante o alvo de toque de 44px+ no mobile
         "inline-flex min-h-12 items-center justify-center px-7 py-3.5",
@@ -36,6 +51,6 @@ export function ButtonLink({
       ].join(" ")}
     >
       {children}
-    </a>
+    </motion.a>
   );
 }

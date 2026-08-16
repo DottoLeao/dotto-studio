@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
+import { RadialMenu } from "@/components/chrome/RadialMenu";
 import { ReadingProgress } from "@/components/chrome/ReadingProgress";
-import { SiteNav } from "@/components/chrome/SiteNav";
 import { SkipLink } from "@/components/chrome/SkipLink";
 import { MotionGate } from "@/components/motion/MotionGate";
 import { About } from "@/components/sections/About";
@@ -62,7 +62,7 @@ export default async function HomePage({
 
       <SkipLink />
       <ReadingProgress />
-      <SiteNav />
+      <RadialMenu />
       <MotionGate />
 
       <main id="main">

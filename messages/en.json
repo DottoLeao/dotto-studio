@@ -12,7 +12,10 @@
     "about": "About",
     "cta": "Start a project",
     "skipToContent": "Skip to content",
-    "home": "Home"
+    "home": "Home",
+    "menuLabel": "Main navigation",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
   },
   "hero": {
     "eyebrow": "INDEPENDENT SOFTWARE STUDIO",

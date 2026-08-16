@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import { useSyncExternalStore } from "react";
 
-// GSAP + ScrollTrigger num chunk separado, carregado só depois da hidratação.
+// O runtime do Motion num chunk separado, carregado só depois da hidratação.
 // Quem pediu reduced-motion nunca baixa nada disto, e para todo mundo o
 // download acontece depois da primeira pintura — o LCP nunca espera por ele.
 const MotionRuntime = dynamic(

@@ -94,32 +94,30 @@
   line-height: 0.98;
 }
 
-/* Marquee fica em CSS de propósito: roda no compositor, fora da main thread.
-   Passar isto para o GSAP seria estritamente pior. */
-@keyframes marquee-x {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* ---------- footer reveal ----------
+   Geometria, não animação: o rodapé fica preso ao fundo da janela e o <main>,
+   opaco, passa por cima. Sem JS, sem medição e sem custom property — por isso
+   vale igual em reduced-motion, onde só a entrada do conteúdo é suprimida.
+
+   `sticky` em vez de `fixed` porque sticky continua ocupando o próprio espaço
+   no fluxo: no fim do documento o rodapé pousa no lugar natural dele, sem
+   margem reservada à mão. */
+.footer-reveal {
+  position: sticky;
+  bottom: 0;
+  z-index: 0;
 }
 
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee-x 34s linear infinite;
+/* O que cobre o rodapé. O fundo precisa ser opaco e explícito: herdar do body
+   deixaria o rodapé transparecer através do main durante a rolagem inteira. */
+#main {
+  position: relative;
+  z-index: 1;
+  background: var(--color-ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation: none;
-    /* Sem loop, a faixa duplicada viraria uma lista repetida: corta na metade. */
-    width: 100%;
-    overflow: hidden;
-  }
-
-  /* Rede global: pega o que não passa pelo GSAP (CSS puro, transições de
+  /* Rede global: pega o que não passa pelo runtime (CSS puro, transições de
      estado). A página continua completa — nada some, só para de se mover. */
   *,
   *::before,
@@ -136,6 +134,13 @@
    classe posta por um script inline síncrono antes da primeira pintura.
    Sem JS, com JS quebrado ou em reduced-motion nada disto se aplica e a
    página nasce inteira e visível — o modo de falha é sempre aberto. */
+/* Abertura da página. Separado de [data-reveal] porque não depende de entrar
+   em tela: dispara na montagem do runtime, uma vez só. */
+html.motion [data-enter] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
 html.motion [data-reveal] {
   opacity: 0;
   transform: translateY(26px);
@@ -159,6 +164,11 @@ html.motion [data-iris] {
 html.motion [data-chapter-copy] {
   opacity: 0;
   transform: translateY(22px);
+}
+
+html.motion [data-footer-inner] {
+  opacity: 0;
+  transform: translateY(28px);
 }
 
 /* Sem movimento o chapter card é uma tela só — nunca um vão de rolagem. */

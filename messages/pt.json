@@ -12,7 +12,10 @@
     "about": "Sobre",
     "cta": "Começar um projeto",
     "skipToContent": "Pular para o conteúdo",
-    "home": "Início"
+    "home": "Início",
+    "menuLabel": "Navegação principal",
+    "menuOpen": "Abrir menu",
+    "menuClose": "Fechar menu"
   },
   "hero": {
     "eyebrow": "ESTÚDIO DE SOFTWARE INDEPENDENTE",

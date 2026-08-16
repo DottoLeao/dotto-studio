@@ -119,10 +119,17 @@ export function Work() {
                   href={c.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="meta-mono ml-auto inline-flex min-h-11 items-center gap-2 text-signal transition-colors hover:text-bone"
+                  className="meta-mono group ml-auto inline-flex min-h-11 items-center gap-2 text-signal transition-colors hover:text-bone"
                 >
                   {t("viewLive")}
-                  <span aria-hidden="true">→</span>
+                  {/* A seta anda 3px no hover. CSS puro: um transform de
+                      3px não justifica um client component. */}
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-[3px]"
+                  >
+                    →
+                  </span>
                 </a>
               ) : null}
             </div>
