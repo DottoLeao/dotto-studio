@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "title": "Dotto — Estúdio de software independente",
+    "description": "Sistemas web, ferramentas internas e IA aplicada para operações que cresceram além das planilhas. Escopo fechado, preço fechado, demo semanal. Remoto, fuso AEST.",
+    "ogTitle": "Dotto — Estúdio de software independente",
+    "ogDescription": "Construímos o sistema que a sua operação hoje roda na cabeça de alguém."
+  },
+  "nav": {
+    "work": "Trabalho",
+    "services": "Serviços",
+    "code": "Código",
+    "about": "Sobre",
+    "cta": "Começar um projeto",
+    "skipToContent": "Pular para o conteúdo",
+    "home": "Início"
+  },
+  "hero": {
+    "eyebrow": "ESTÚDIO DE SOFTWARE INDEPENDENTE",
+    "location": "REMOTO · FUSO AEST",
+    "headline": "Construímos o sistema que a sua operação hoje roda na cabeça de alguém.",
+    "lead": "Sistemas web, ferramentas internas e IA aplicada — desenhados, construídos e entregues de ponta a ponta. Padrão de agência, sem as camadas.",
+    "ctaPrimary": "Começar um projeto",
+    "ctaSecondary": "Ver o trabalho",
+    "terms": "ESCOPO FECHADO · PREÇO FECHADO · DEMO SEMANAL",
+    "scrollCue": "ROLE"
+  },
+  "manifesto": {
+    "eyebrow": "POR QUE ESTÚDIOS ASSIM EXISTEM",
+    "leadBefore": "A maioria das operações não tem um problema de software. Tem um problema de ",
+    "leadEmphasis": "visibilidade",
+    "leadAfter": " — decisões tomadas de memória, planilhas enviadas à meia-noite, um ponto cego que ninguém assume."
+  },
+  "chapter": {
+    "label": "CAPÍTULO 01",
+    "title": "Trabalho selecionado",
+    "lead": "Um case, contado direito: o ponto cego, o que construímos, o que mudou."
+  },
+  "work": {
+    "eyebrow": "TRABALHO SELECIONADO",
+    "counter": "CASE {current} / {total}",
+    "blindSpotLabel": "O PONTO CEGO",
+    "builtLabel": "O QUE CONSTRUÍMOS",
+    "changedLabel": "O QUE MUDOU",
+    "viewLive": "Ver funcionando"
+  },
+  "services": {
+    "eyebrow": "O QUE FAZEMOS",
+    "heading": "Três coisas, bem feitas"
+  },
+  "openSource": {
+    "eyebrow": "NO GITHUB",
+    "heading": "Código aberto",
+    "lead": "{count} repositórios públicos — protótipos, ferramentas e estudos. Nem tudo aqui é produto: é o registro do que foi construído, aberto para leitura.",
+    "noDescription": "Sem descrição",
+    "demo": "Demo",
+    "viewProfile": "Ver o perfil no GitHub"
+  },
+  "process": {
+    "eyebrow": "COMO FUNCIONA",
+    "heading": "Como o projeto roda",
+    "lead": "Escopo fechado, preço fechado, uma demo funcionando toda semana. Você sempre sabe o que está pagando e o que já existe."
+  },
+  "about": {
+    "eyebrow": "A PESSOA POR TRÁS DO ESTÚDIO",
+    "bio1": "Sou engenheiro de software formado pela FIAP, trabalhando com empresas cuja operação cresceu além das planilhas. Meu trabalho fica onde a logística encontra o código: transformar processos físicos e bagunçados em sistemas que economizam horas e param erros antes que eles se acumulem.",
+    "bio2": "Tecnologia é a coisa mais próxima de magia que temos — uma ideia vira algo que funciona, e o dia de alguém fica mais fácil. Essa é a parte de que eu nunca canso.",
+    "portraitAlt": "Retrato de Lorenzo Leão Dotto",
+    "availabilityWithQuarter": "DISPONÍVEL PARA UM NOVO PROJETO — {quarter}",
+    "availability": "DISPONÍVEL PARA UM NOVO PROJETO"
+  },
+  "contact": {
+    "heading": "Conte onde está o ponto cego.",
+    "lead": "Descreva o processo que está custando seu tempo. Você recebe uma leitura honesta sobre se vale construir — e o que seria preciso — em até 24 horas.",
+    "whatsapp": "Falar no WhatsApp",
+    "email": "Enviar e-mail"
+  },
+  "footer": {
+    "location": "LORENZODOTTO.COM.BR · REMOTO",
+    "rights": "© {year} — RESPOSTA EM ATÉ 24 HORAS",
+    "backToTop": "Voltar ao topo"
+  },
+  "locale": {
+    "switchTo": "EN",
+    "switchLabel": "Ver em inglês"
+  },
+  "media": {
+    "pending": "IMAGEM PENDENTE"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "lead": "O endereço que você abriu não existe neste site.",
+    "cta": "Ir para a home"
+  }
+}

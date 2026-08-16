@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Marca (brand guide, não negociável) ---- */
+  --color-ink: #17130f;
+  --color-bone: #f5f1e9;
+  --color-signal: #ff4d1c;
+  --color-signal-ink: #b3330c;
+  --color-slate: #6e675e;
+
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  /* ---- Escala tipográfica fluida ----
+     Substitui a cascata de !important do protótipo. Os extremos batem com
+     os breakpoints originais: h1 38px em 360px, 104px em 1440px. */
+  --text-h1: clamp(2.375rem, 1rem + 6.11vw, 6.5rem);
+  --text-h2: clamp(2.125rem, 1.667rem + 2.04vw, 3.5rem);
+  --text-h3: clamp(2rem, 1.5rem + 2.22vw, 3.5rem);
+  --text-lead: clamp(1.25rem, 0.875rem + 1.67vw, 2.375rem);
+  --text-num: clamp(3.25rem, 2.75rem + 2.22vw, 4.75rem);
+  --text-chapter: clamp(3.25rem, 2rem + 5.56vw, 7rem);
+
+  /* ---- Ritmo ---- */
+  --spacing-gutter: clamp(1.5rem, 0.75rem + 3vw, 2.5rem);
+  --spacing-section: clamp(5.5rem, 3rem + 8vw, 8.125rem);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    /* Sem `scroll-behavior: smooth`: ele anima scrollTop fora do rAF do GSAP
+       e faz os valores com scrub atrasarem visivelmente. Âncoras usam
+       ScrollToPlugin. */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-bone);
+    font-family: var(--font-display);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-signal);
+    color: var(--color-bone);
+  }
+
+  /* Teclado precisa enxergar onde está. O protótipo não tinha nada disso. */
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Superfícies claras: o anel Signal puro vibra demais sobre Bone. */
+  [data-surface="bone"] :focus-visible {
+    outline-color: var(--color-signal-ink);
+  }
+
+  /* Sobre o próprio Signal, um anel Signal seria invisível. */
+  [data-surface="signal"] :focus-visible {
+    outline-color: var(--color-ink);
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@utility meta-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@utility display-tight {
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+/* Marquee fica em CSS de propósito: roda no compositor, fora da main thread.
+   Passar isto para o GSAP seria estritamente pior. */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x 34s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    /* Sem loop, a faixa duplicada viraria uma lista repetida: corta na metade. */
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* Rede global: pega o que não passa pelo GSAP (CSS puro, transições de
+     estado). A página continua completa — nada some, só para de se mover. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- estados iniciais de movimento ----------
+   O estado FINAL é o padrão do CSS. O inicial só existe sob `html.motion`,
+   classe posta por um script inline síncrono antes da primeira pintura.
+   Sem JS, com JS quebrado ou em reduced-motion nada disto se aplica e a
+   página nasce inteira e visível — o modo de falha é sempre aberto. */
+html.motion [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+html.motion [data-reveal="clip"] {
+  opacity: 1;
+  transform: translateY(14px);
+  clip-path: inset(0 0 105% 0);
+}
+
+html.motion [data-reveal="scale"] {
+  opacity: 0;
+  transform: scale(1.06);
+}
+
+html.motion [data-iris] {
+  clip-path: circle(0px at 50% 50%);
+}
+
+html.motion [data-chapter-copy] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+/* Sem movimento o chapter card é uma tela só — nunca um vão de rolagem. */
+[data-chapter] {
+  --chapter-h: 100svh;
+}
+
+html.motion [data-chapter] {
+  --chapter-h: 230vh;
+}
+
+@media (max-width: 900px) {
+  html.motion [data-chapter] {
+    --chapter-h: 180vh;
+  }
+}
+
+@media (max-width: 640px) {
+  html.motion [data-chapter] {
+    --chapter-h: 140vh;
+  }
+}
+
+/* Quadro assumido para asset que ainda não existe. Nunca imagem de banco. */
+.media-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #221d18 0 9px,
+    #1c1813 9px 18px
+  );
+  border: 1px solid rgba(245, 241, 233, 0.16);
+}
+
+[data-surface="bone"] .media-hatch {
+  background-image: repeating-linear-gradient(
+    45deg,
+    #e8e2d6 0 9px,
+    #f0ebe0 9px 18px
+  );
+  border-color: rgba(23, 19, 15, 0.16);
+}
+
+/* O rótulo do quadro segue a superfície: senão inverte e some. */
+.hatch-label {
+  color: rgba(245, 241, 233, 0.75);
+}
+
+[data-surface="bone"] .hatch-label {
+  color: rgba(23, 19, 15, 0.72);
+}

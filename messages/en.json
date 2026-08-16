@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "title": "Dotto — Independent software studio",
+    "description": "Web systems, internal tools and applied AI for operations that outgrew their spreadsheets. Fixed scope, fixed price, weekly demo. Remote, AEST hours.",
+    "ogTitle": "Dotto — Independent software studio",
+    "ogDescription": "We build the system your operation is currently running in someone's head."
+  },
+  "nav": {
+    "work": "Work",
+    "services": "Services",
+    "code": "Code",
+    "about": "About",
+    "cta": "Start a project",
+    "skipToContent": "Skip to content",
+    "home": "Home"
+  },
+  "hero": {
+    "eyebrow": "INDEPENDENT SOFTWARE STUDIO",
+    "location": "REMOTE · AEST HOURS",
+    "headline": "We build the system your operation is currently running in someone's head.",
+    "lead": "Web systems, internal tools and applied AI — designed, built and delivered end to end. Agency standards of craft, without the layers.",
+    "ctaPrimary": "Start a project",
+    "ctaSecondary": "See the work",
+    "terms": "FIXED SCOPE · FIXED PRICE · WEEKLY DEMO",
+    "scrollCue": "SCROLL"
+  },
+  "manifesto": {
+    "eyebrow": "WHY STUDIOS LIKE THIS EXIST",
+    "leadBefore": "Most operations don't have a software problem. They have a ",
+    "leadEmphasis": "visibility",
+    "leadAfter": " problem — decisions made from memory, spreadsheets sent at midnight, a blind spot nobody owns."
+  },
+  "chapter": {
+    "label": "CHAPTER 01",
+    "title": "Selected work",
+    "lead": "One case, told properly: the blind spot, what we built, what changed."
+  },
+  "work": {
+    "eyebrow": "SELECTED WORK",
+    "counter": "CASE {current} / {total}",
+    "blindSpotLabel": "THE BLIND SPOT",
+    "builtLabel": "WHAT WE BUILT",
+    "changedLabel": "WHAT CHANGED",
+    "viewLive": "View it live"
+  },
+  "services": {
+    "eyebrow": "WHAT WE DO",
+    "heading": "Three things, properly"
+  },
+  "openSource": {
+    "eyebrow": "ON GITHUB",
+    "heading": "Open source",
+    "lead": "{count} public repositories — prototypes, tools and studies. Not all of it is product: it's the record of what was built, open to read.",
+    "noDescription": "No description",
+    "demo": "Demo",
+    "viewProfile": "View the GitHub profile"
+  },
+  "process": {
+    "eyebrow": "HOW IT RUNS",
+    "heading": "How the project runs",
+    "lead": "Fixed scope, fixed price, a working demo every week. You always know what you're paying for and what exists so far."
+  },
+  "about": {
+    "eyebrow": "THE PERSON BEHIND THE STUDIO",
+    "bio1": "I'm a software engineer trained at FIAP, working with companies whose operations outgrew their spreadsheets. My work sits where logistics meets code: turning messy, physical processes into systems that save hours and stop errors before they compound.",
+    "bio2": "Technology is the closest thing we have to magic — an idea becomes something that works, and someone's day gets easier. That's the part I never get tired of.",
+    "portraitAlt": "Portrait of Lorenzo Leão Dotto",
+    "availabilityWithQuarter": "AVAILABLE FOR ONE NEW PROJECT — {quarter}",
+    "availability": "AVAILABLE FOR ONE NEW PROJECT"
+  },
+  "contact": {
+    "heading": "Tell us where the blind spot is.",
+    "lead": "Describe the process that's costing you time. You'll get an honest read on whether it's worth building — and what it would take — within 24 hours.",
+    "whatsapp": "Talk on WhatsApp",
+    "email": "Send an email"
+  },
+  "footer": {
+    "location": "LORENZODOTTO.COM.BR · REMOTE",
+    "rights": "© {year} — REPLIES WITHIN 24 HOURS",
+    "backToTop": "Back to top"
+  },
+  "locale": {
+    "switchTo": "PT",
+    "switchLabel": "View in Portuguese"
+  },
+  "media": {
+    "pending": "IMAGE PENDING"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "lead": "The address you opened doesn't exist on this site.",
+    "cta": "Go to the homepage"
+  }
+}
