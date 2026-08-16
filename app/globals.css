@@ -117,6 +117,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  /* A faixa não roda: sem o loop, a segunda cópia seria só uma lista repetida.
+     Ela é cortada aqui, no CSS, e não removida do JSX — marcação decidida por
+     `useReducedMotion()` diverge entre servidor e cliente e derruba a
+     hidratação inteira. */
+  [data-marquee] {
+    width: 100%;
+    overflow: hidden;
+  }
+
   /* Rede global: pega o que não passa pelo runtime (CSS puro, transições de
      estado). A página continua completa — nada some, só para de se mover. */
   *,

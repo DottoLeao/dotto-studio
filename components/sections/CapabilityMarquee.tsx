@@ -64,13 +64,18 @@ export function CapabilityMarquee() {
     >
       <motion.div
         ref={trackRef}
-        style={reduced ? undefined : { x }}
+        data-marquee
+        style={{ x }}
         // pan-y: o arraste horizontal é nosso, o vertical continua sendo da
         // página. Sem isto, pegar a faixa no celular sequestra a rolagem.
-        className={[
-          "flex w-max touch-pan-y select-none",
-          reduced ? "" : "cursor-grab active:cursor-grabbing",
-        ].join(" ")}
+        //
+        // NADA aqui pode depender de `reduced`: `useReducedMotion()` responde
+        // `false` no servidor e `true` no cliente de quem pediu menos
+        // movimento. Qualquer marcação decidida por ele diverge na
+        // hidratação, e o React reage descartando o HTML do servidor e
+        // recriando a árvore inteira — inclusive o <html>, que perde a classe
+        // `motion` posta antes da pintura. `reduced` só governa comportamento.
+        className="flex w-max touch-pan-y cursor-grab select-none active:cursor-grabbing"
         onPointerEnter={() => {
           speed.current = HOVER;
         }}
@@ -112,9 +117,9 @@ export function CapabilityMarquee() {
       >
         {/* Duas cópias exatas: a faixa percorre -50% e volta ao mesmo frame.
             A segunda é aria-hidden para o leitor de tela não ler duas vezes.
-            Em reduced-motion a duplicata não existe — sem loop, ela seria
-            apenas uma lista repetida no meio da página. */}
-        {(reduced ? [0] : [0, 1]).map((copy) => (
+            Em reduced-motion a duplicata continua no DOM — some por CSS, que
+            não participa da hidratação — senão a lista apareceria repetida. */}
+        {[0, 1].map((copy) => (
           <ul
             key={copy}
             aria-hidden={copy === 1 ? "true" : undefined}
