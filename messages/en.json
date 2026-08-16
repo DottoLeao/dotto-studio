@@ -1,16 +1,16 @@
 {
   "metadata": {
-    "title": "Dotto — Independent software studio",
-    "description": "Web systems, internal tools and applied AI for operations that outgrew their spreadsheets. Fixed scope, fixed price, weekly demo. Remote, AEST hours.",
-    "ogTitle": "Dotto — Independent software studio",
-    "ogDescription": "We build the system your operation is currently running in someone's head."
+    "title": "Dotto — Lorenzo Dotto, full-stack developer",
+    "description": "Web systems, internal tools and applied AI for operations that outgrew their spreadsheets. From the data model to the deploy. Remote, AEST hours.",
+    "ogTitle": "Dotto — Lorenzo Dotto, full-stack developer",
+    "ogDescription": "I build the system your operation is currently running in someone's head."
   },
   "nav": {
     "work": "Work",
-    "services": "Services",
+    "services": "Capabilities",
     "code": "Code",
     "about": "About",
-    "cta": "Start a project",
+    "cta": "Get in touch",
     "skipToContent": "Skip to content",
     "home": "Home",
     "menuLabel": "Main navigation",
@@ -18,17 +18,17 @@
     "menuClose": "Close menu"
   },
   "hero": {
-    "eyebrow": "INDEPENDENT SOFTWARE STUDIO",
+    "eyebrow": "FULL-STACK DEVELOPER",
     "location": "REMOTE · AEST HOURS",
-    "headline": "We build the system your operation is currently running in someone's head.",
-    "lead": "Web systems, internal tools and applied AI — designed, built and delivered end to end. Agency standards of craft, without the layers.",
-    "ctaPrimary": "Start a project",
+    "headline": "I build the system your operation is currently running in someone's head.",
+    "lead": "Web systems, internal tools and applied AI — from the data model to the deploy. One person end to end: no translation layer between whoever decides and whoever writes the code.",
+    "ctaPrimary": "Get in touch",
     "ctaSecondary": "See the work",
-    "terms": "FIXED SCOPE · FIXED PRICE · WEEKLY DEMO",
+    "terms": "END TO END · ONE PERSON · A DEMO EVERY WEEK",
     "scrollCue": "SCROLL"
   },
   "manifesto": {
-    "eyebrow": "WHY STUDIOS LIKE THIS EXIST",
+    "eyebrow": "WHY THIS WORK EXISTS",
     "leadBefore": "Most operations don't have a software problem. They have a ",
     "leadEmphasis": "visibility",
     "leadAfter": " problem — decisions made from memory, spreadsheets sent at midnight, a blind spot nobody owns."
@@ -36,19 +36,19 @@
   "chapter": {
     "label": "CHAPTER 01",
     "title": "Selected work",
-    "lead": "One case, told properly: the blind spot, what we built, what changed."
+    "lead": "One case, told properly: the blind spot, what I built, what changed."
   },
   "work": {
     "eyebrow": "SELECTED WORK",
     "counter": "CASE {current} / {total}",
     "blindSpotLabel": "THE BLIND SPOT",
-    "builtLabel": "WHAT WE BUILT",
+    "builtLabel": "WHAT I BUILT",
     "changedLabel": "WHAT CHANGED",
     "viewLive": "View it live"
   },
   "services": {
-    "eyebrow": "WHAT WE DO",
-    "heading": "Three things, properly"
+    "eyebrow": "WHAT I'M GOOD AT",
+    "heading": "Where I deliver most"
   },
   "openSource": {
     "eyebrow": "ON GITHUB",
@@ -59,21 +59,21 @@
     "viewProfile": "View the GitHub profile"
   },
   "process": {
-    "eyebrow": "HOW IT RUNS",
-    "heading": "How the project runs",
-    "lead": "Fixed scope, fixed price, a working demo every week. You always know what you're paying for and what exists so far."
+    "eyebrow": "HOW I WORK",
+    "heading": "How I work",
+    "lead": "I start with the process, not the screen. Every week there's something working for you to look at — never a report saying it's going well."
   },
   "about": {
-    "eyebrow": "THE PERSON BEHIND THE STUDIO",
+    "eyebrow": "ABOUT ME",
     "bio1": "I'm a software engineer trained at FIAP, working with companies whose operations outgrew their spreadsheets. My work sits where logistics meets code: turning messy, physical processes into systems that save hours and stop errors before they compound.",
     "bio2": "Technology is the closest thing we have to magic — an idea becomes something that works, and someone's day gets easier. That's the part I never get tired of.",
     "portraitAlt": "Portrait of Lorenzo Leão Dotto",
-    "availabilityWithQuarter": "AVAILABLE FOR ONE NEW PROJECT — {quarter}",
-    "availability": "AVAILABLE FOR ONE NEW PROJECT"
+    "availabilityWithQuarter": "AVAILABLE FOR A PROJECT OR A ROLE — {quarter}",
+    "availability": "AVAILABLE FOR A PROJECT OR A ROLE"
   },
   "contact": {
-    "heading": "Tell us where the blind spot is.",
-    "lead": "Describe the process that's costing you time. You'll get an honest read on whether it's worth building — and what it would take — within 24 hours.",
+    "heading": "Tell me where the blind spot is.",
+    "lead": "Describe the process that's costing you time and I'll come back with an honest read on whether it's worth building — within 24 hours. If you're hiring, it's the same address.",
     "whatsapp": "Talk on WhatsApp",
     "email": "Send an email"
   },
@@ -87,7 +87,7 @@
     "switchLabel": "View in Portuguese"
   },
   "capabilities": {
-    "label": "Studio capabilities"
+    "label": "What I build"
   },
   "media": {
     "pending": "IMAGE PENDING"

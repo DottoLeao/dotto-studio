@@ -43,7 +43,7 @@ export function Services() {
                 {pick(s.description, locale)}
               </p>
               <p className="meta-mono mt-7 text-slate">
-                {pick(s.engagement, locale)}
+                {pick(s.stack, locale)}
               </p>
             </li>
           ))}

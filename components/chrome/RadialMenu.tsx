@@ -211,7 +211,15 @@ export function RadialMenu() {
 
       <nav
         aria-label={t("menuLabel")}
-        className="pointer-events-none absolute right-gutter bottom-gutter"
+        // O deslocamento inferior soma a safe area: no celular a barra do
+        // navegador entra e sai, e sem isto o botão pula junto com ela — ou
+        // fica por baixo. Depende de `viewportFit: "cover"` no layout, senão
+        // `env()` resolve para zero e o valor é só o gutter de sempre.
+        style={{
+          bottom: "calc(var(--spacing-gutter) + env(safe-area-inset-bottom))",
+          right: "calc(var(--spacing-gutter) + env(safe-area-inset-right))",
+        }}
+        className="pointer-events-none absolute"
       >
         <ul className="absolute right-0 bottom-0 list-none">
           <AnimatePresence>

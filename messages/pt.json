@@ -1,16 +1,16 @@
 {
   "metadata": {
-    "title": "Dotto — Estúdio de software independente",
-    "description": "Sistemas web, ferramentas internas e IA aplicada para operações que cresceram além das planilhas. Escopo fechado, preço fechado, demo semanal. Remoto, fuso AEST.",
-    "ogTitle": "Dotto — Estúdio de software independente",
-    "ogDescription": "Construímos o sistema que a sua operação hoje roda na cabeça de alguém."
+    "title": "Dotto — Lorenzo Dotto, desenvolvedor full-stack",
+    "description": "Sistemas web, ferramentas internas e IA aplicada para operações que cresceram além das planilhas. Do modelo de dados ao deploy. Remoto, fuso AEST.",
+    "ogTitle": "Dotto — Lorenzo Dotto, desenvolvedor full-stack",
+    "ogDescription": "Eu construo o sistema que a sua operação hoje roda na cabeça de alguém."
   },
   "nav": {
     "work": "Trabalho",
-    "services": "Serviços",
+    "services": "Competências",
     "code": "Código",
     "about": "Sobre",
-    "cta": "Começar um projeto",
+    "cta": "Falar comigo",
     "skipToContent": "Pular para o conteúdo",
     "home": "Início",
     "menuLabel": "Navegação principal",
@@ -18,17 +18,17 @@
     "menuClose": "Fechar menu"
   },
   "hero": {
-    "eyebrow": "ESTÚDIO DE SOFTWARE INDEPENDENTE",
+    "eyebrow": "DESENVOLVEDOR FULL-STACK",
     "location": "REMOTO · FUSO AEST",
-    "headline": "Construímos o sistema que a sua operação hoje roda na cabeça de alguém.",
-    "lead": "Sistemas web, ferramentas internas e IA aplicada — desenhados, construídos e entregues de ponta a ponta. Padrão de agência, sem as camadas.",
-    "ctaPrimary": "Começar um projeto",
+    "headline": "Eu construo o sistema que a sua operação hoje roda na cabeça de alguém.",
+    "lead": "Sistemas web, ferramentas internas e IA aplicada — do modelo de dados ao deploy. Uma pessoa só do começo ao fim: nenhuma camada de tradução entre quem decide e quem escreve o código.",
+    "ctaPrimary": "Falar comigo",
     "ctaSecondary": "Ver o trabalho",
-    "terms": "ESCOPO FECHADO · PREÇO FECHADO · DEMO SEMANAL",
+    "terms": "PONTA A PONTA · UMA PESSOA · DEMO TODA SEMANA",
     "scrollCue": "ROLE"
   },
   "manifesto": {
-    "eyebrow": "POR QUE ESTÚDIOS ASSIM EXISTEM",
+    "eyebrow": "POR QUE ESSE TRABALHO EXISTE",
     "leadBefore": "A maioria das operações não tem um problema de software. Tem um problema de ",
     "leadEmphasis": "visibilidade",
     "leadAfter": " — decisões tomadas de memória, planilhas enviadas à meia-noite, um ponto cego que ninguém assume."
@@ -36,19 +36,19 @@
   "chapter": {
     "label": "CAPÍTULO 01",
     "title": "Trabalho selecionado",
-    "lead": "Um case, contado direito: o ponto cego, o que construímos, o que mudou."
+    "lead": "Um case, contado direito: o ponto cego, o que construí, o que mudou."
   },
   "work": {
     "eyebrow": "TRABALHO SELECIONADO",
     "counter": "CASE {current} / {total}",
     "blindSpotLabel": "O PONTO CEGO",
-    "builtLabel": "O QUE CONSTRUÍMOS",
+    "builtLabel": "O QUE CONSTRUÍ",
     "changedLabel": "O QUE MUDOU",
     "viewLive": "Ver funcionando"
   },
   "services": {
-    "eyebrow": "O QUE FAZEMOS",
-    "heading": "Três coisas, bem feitas"
+    "eyebrow": "NO QUE EU SOU BOM",
+    "heading": "Onde eu entrego mais"
   },
   "openSource": {
     "eyebrow": "NO GITHUB",
@@ -59,21 +59,21 @@
     "viewProfile": "Ver o perfil no GitHub"
   },
   "process": {
-    "eyebrow": "COMO FUNCIONA",
-    "heading": "Como o projeto roda",
-    "lead": "Escopo fechado, preço fechado, uma demo funcionando toda semana. Você sempre sabe o que está pagando e o que já existe."
+    "eyebrow": "COMO EU TRABALHO",
+    "heading": "Como eu trabalho",
+    "lead": "Eu começo pelo processo, não pela tela. Toda semana tem alguma coisa funcionando para você olhar — nunca um relatório dizendo que está indo bem."
   },
   "about": {
-    "eyebrow": "A PESSOA POR TRÁS DO ESTÚDIO",
+    "eyebrow": "SOBRE MIM",
     "bio1": "Sou engenheiro de software formado pela FIAP, trabalhando com empresas cuja operação cresceu além das planilhas. Meu trabalho fica onde a logística encontra o código: transformar processos físicos e bagunçados em sistemas que economizam horas e param erros antes que eles se acumulem.",
     "bio2": "Tecnologia é a coisa mais próxima de magia que temos — uma ideia vira algo que funciona, e o dia de alguém fica mais fácil. Essa é a parte de que eu nunca canso.",
     "portraitAlt": "Retrato de Lorenzo Leão Dotto",
-    "availabilityWithQuarter": "DISPONÍVEL PARA UM NOVO PROJETO — {quarter}",
-    "availability": "DISPONÍVEL PARA UM NOVO PROJETO"
+    "availabilityWithQuarter": "DISPONÍVEL PARA PROJETO OU POSIÇÃO — {quarter}",
+    "availability": "DISPONÍVEL PARA PROJETO OU POSIÇÃO"
   },
   "contact": {
     "heading": "Conte onde está o ponto cego.",
-    "lead": "Descreva o processo que está custando seu tempo. Você recebe uma leitura honesta sobre se vale construir — e o que seria preciso — em até 24 horas.",
+    "lead": "Descreva o processo que está custando seu tempo e eu respondo com uma leitura honesta sobre se vale construir — em até 24 horas. Se você está contratando, é o mesmo endereço.",
     "whatsapp": "Falar no WhatsApp",
     "email": "Enviar e-mail"
   },
@@ -87,7 +87,7 @@
     "switchLabel": "Ver em inglês"
   },
   "capabilities": {
-    "label": "Capacidades do estúdio"
+    "label": "O que eu construo"
   },
   "media": {
     "pending": "IMAGEM PENDENTE"

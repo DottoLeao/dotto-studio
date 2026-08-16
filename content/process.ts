@@ -1,29 +1,37 @@
 import type { ProcessStep } from "./types";
 
+/**
+ * Método, não cronograma comercial.
+ *
+ * Os marcadores eram "SEMANA 0 / SEMANA 1 / 2 — 6 / DEPOIS", que é a proposta
+ * de uma agência, com prazo contratado. Agora dizem a ORDEM em que ele trabalha,
+ * que é verdadeira tanto para um cliente quanto para um time que o contrate —
+ * e não promete calendário que nenhum dos dois casos garante.
+ */
 export const processSteps: ProcessStep[] = [
   {
-    marker: { pt: "SEMANA 0", en: "WEEK 0" },
+    marker: { pt: "PRIMEIRO", en: "FIRST" },
     description: {
-      pt: "Leitura do processo — no local ou em call",
-      en: "Process read — on site or on call",
+      pt: "Entender o processo — no local ou em call",
+      en: "Understand the process — on site or on call",
     },
   },
   {
-    marker: { pt: "SEMANA 1", en: "WEEK 1" },
+    marker: { pt: "ANTES DO CÓDIGO", en: "BEFORE ANY CODE" },
     description: {
-      pt: "Escopo, preço e datas — por escrito",
-      en: "Scope, price and dates — in writing",
+      pt: "Modelo de dados e limites de segurança, por escrito",
+      en: "Data model and security boundaries, in writing",
     },
   },
   {
-    marker: { pt: "2 — 6", en: "2 — 6" },
+    marker: { pt: "TODA SEMANA", en: "EVERY WEEK" },
     description: {
-      pt: "Build, demo semanal, ajuste",
-      en: "Build, weekly demo, adjust",
+      pt: "Alguma coisa funcionando para você olhar",
+      en: "Something working for you to look at",
     },
   },
   {
-    marker: { pt: "DEPOIS", en: "AFTER" },
+    marker: { pt: "NO FIM", en: "AT THE END" },
     description: {
       pt: "Em produção, documentado, entregue rodando",
       en: "Deployed, documented, handed over running",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -19,6 +19,21 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
   variable: "--font-plex-mono",
 });
+
+/**
+ * `viewportFit: "cover"` libera as `env(safe-area-inset-*)`, que sem isto valem
+ * zero. É o que permite ao botão flutuante do menu se afastar da barra inferior
+ * do navegador em vez de brigar com ela.
+ *
+ * `themeColor` na cor Ink faz a moldura do navegador parar de destoar do site:
+ * no celular, metade da sensação de "aparece um fundo claro ao rolar" vem da
+ * barra do navegador, não da página.
+ */
+export const viewport: Viewport = {
+  themeColor: "#17130f",
+  viewportFit: "cover",
+  colorScheme: "dark",
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

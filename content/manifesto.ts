@@ -4,8 +4,8 @@ export const principles: Principle[] = [
   {
     number: "01",
     title: {
-      pt: "Começamos pelo processo",
-      en: "We start with the process",
+      pt: "Começo pelo processo",
+      en: "I start with the process",
     },
     description: {
       pt: "Dois dias no local ou em call, observando como o trabalho acontece de verdade. O software vem depois.",
@@ -15,8 +15,8 @@ export const principles: Principle[] = [
   {
     number: "02",
     title: {
-      pt: "Entregamos a parte chata primeiro",
-      en: "Ship the boring part first",
+      pt: "Entrego a parte chata primeiro",
+      en: "I ship the boring part first",
     },
     description: {
       pt: "Captura de dados antes de dashboard. Um ponto de entrada limpo resolve metade do que chamam de problema de IA.",
@@ -26,8 +26,8 @@ export const principles: Principle[] = [
   {
     number: "03",
     title: {
-      pt: "Entregamos rodando",
-      en: "Hand it over running",
+      pt: "Entrego rodando",
+      en: "I hand it over running",
     },
     description: {
       pt: "Documentado, em produção, e simples o bastante para a equipe continuar usando no sexto mês.",

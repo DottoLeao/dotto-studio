@@ -70,7 +70,9 @@ export type Service = {
   number: string;
   title: Localized<string>;
   description: Localized<string>;
-  engagement: Localized<string>;
+  /** Terreno técnico do item. Era `engagement`, com prazo e preço — o campo
+   *  deixou de vender pacote quando a seção virou competência. */
+  stack: Localized<string>;
 };
 
 export type ProcessStep = {

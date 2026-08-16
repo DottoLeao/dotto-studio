@@ -17,10 +17,22 @@ export function ChapterCard() {
       data-chapter
       data-surface="ink"
       aria-labelledby="chapter-01-title"
-      className="relative bg-bone"
+      // Fundo INK, não bone: este fundo só aparece em vão — abaixo do painel
+      // fixo — e vão tem de mostrar o estado FINAL da cena, que é ink, a mesma
+      // cor do Work que vem a seguir. Enquanto era bone, qualquer vão virava
+      // uma faixa clara no meio da rolagem.
+      className="relative bg-ink"
       style={{ height: "var(--chapter-h)" }}
     >
-      <div className="sticky top-0 h-svh overflow-hidden">
+      {/* `h-lvh`, a altura MÁXIMA da viewport, e fundo próprio.
+          Com `h-svh` o painel tinha a altura da tela COM a barra do navegador
+          aberta; quando ela recolhia, a tela crescia, o painel não, e sobrava
+          uma faixa mostrando o fundo da seção. Com `lvh` o painel sempre cobre
+          e o excedente sai de quadro — sem o reflow por frame que `dvh` traria.
+
+          O bone saiu da seção e veio para cá porque é o primeiro estado da
+          íris, não a cor de fundo do bloco. */}
+      <div className="sticky top-0 h-lvh overflow-hidden bg-bone">
         <div data-iris="signal" className="absolute inset-0 bg-signal" />
         <div data-iris="ink" className="absolute inset-0 bg-ink" />
 
