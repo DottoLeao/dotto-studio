@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { animate, inView, scroll } from "motion";
 
 import { EASE, clamp01, easeOut } from "@/lib/motion";
+import { playReveal } from "./reveal";
+import { applySeams } from "./seams";
 
 type MotionWindow = Window & { __dottoMotionTimer?: ReturnType<typeof setTimeout> };
 
@@ -76,58 +78,15 @@ export function MotionRuntime() {
         );
       }
 
-      /* ---------- saída do hero ---------- */
-      const hero = document.querySelector<HTMLElement>("[data-hero]");
-      const heroInner = document.querySelector<HTMLElement>("[data-hero-inner]");
-      if (hero && heroInner) {
-        addScrub(
-          animate(
-            heroInner,
-            {
-              transform: ["translateY(0px)", "translateY(-46px)"],
-              opacity: [1, 0],
-            },
-            { ease: "linear" },
-          ),
-          // opacidade zera em ~87% da saída, como no protótipo
-          { target: hero, offset: ["start start", "87% start"] },
-        );
-      }
+      /* ---------- emendas ----------
+         Uma transição própria por fronteira, nenhuma repetida. Substitui o
+         dissolve único (`scale + opacity .38 + blur`) que rodava igual em oito
+         seções: aquilo não era transição, era a página envelhecendo por igual,
+         e em superfície clara lia como defeito.
 
-      /* ---------- depth dissolve das seções ----------
-         O hero tem a própria saída; o chapter card contém um filho sticky e
-         transform nele quebraria o sticky. Ambos ficam de fora. */
-      const sections = document.querySelectorAll<HTMLElement>(
-        "[data-sec]:not([data-hero])",
-      );
-
-      sections.forEach((sec) => {
-        // Equivalente ao `end: "+=X"` do ScrollTrigger: a seção sobe exatamente
-        // o mesmo tanto que a rolagem, então distância de rolagem e distância
-        // percorrida pelo alvo são a mesma medida.
-        const span = Math.max(
-          sec.offsetHeight * 0.55,
-          window.innerHeight * 0.55,
-        );
-
-        addScrub(
-          animate(
-            sec,
-            {
-              transform: [
-                "translateY(0px) scale(1)",
-                "translateY(-26px) scale(0.945)",
-              ],
-              opacity: [1, 0.38],
-              // blur é a coisa mais cara do protótipo: repinta a camada
-              // inteira a cada frame. Só desktop.
-              ...(isDesktop ? { filter: ["blur(0px)", "blur(3.4px)"] } : null),
-            },
-            { ease: "linear" },
-          ),
-          { target: sec, offset: ["start start", `${Math.round(span)}px start`] },
-        );
-      });
+         A lei agora: nada que sai desbota ou borra. Só geometria. Some junto o
+         blur de tela cheia, que era o efeito mais caro da página. */
+      applySeams(add);
 
       /* ---------- cena assinatura: iris ---------- */
       const chapter = document.querySelector<HTMLElement>("[data-chapter]");
@@ -198,47 +157,18 @@ export function MotionRuntime() {
         );
       }
 
-      /* ---------- reveals em escada ---------- */
-      const revealed = new WeakSet<Element>();
+      /* ---------- reveals em escada ----------
+         Só o que NÃO está numa seção com emenda. Dentro delas quem solta o
+         conteúdo é a própria emenda, depois que a folha libera a superfície —
+         senão o texto já estaria inteiro desenhado quando a borda passasse por
+         cima, e borda dura cortando manchete no meio das letras lê como layout
+         quebrado. */
       add(
         inView(
           "[data-reveal]",
           (element) => {
-            if (revealed.has(element)) return;
-            revealed.add(element);
-
-            const el = element as HTMLElement;
-            const options = {
-              duration: 0.86,
-              delay: Number(el.dataset.revealDelay ?? 0) * 0.07,
-              ease: EASE.out,
-            };
-
-            if (el.dataset.reveal === "clip") {
-              animate(
-                el,
-                {
-                  clipPath: ["inset(0 0 105% 0)", "inset(0 0 -12% 0)"],
-                  transform: ["translateY(14px)", "translateY(0px)"],
-                },
-                options,
-              );
-            } else if (el.dataset.reveal === "scale") {
-              animate(
-                el,
-                { transform: ["scale(1.06)", "scale(1)"], opacity: [0, 1] },
-                options,
-              );
-            } else {
-              animate(
-                el,
-                {
-                  transform: ["translateY(26px)", "translateY(0px)"],
-                  opacity: [0, 1],
-                },
-                options,
-              );
-            }
+            if (element.closest("[data-seam]")) return;
+            playReveal(element);
           },
           { margin: "0px 0px -10% 0px" },
         ),

@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 
+import { SeamLayer } from "@/components/motion/SeamLayer";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { site } from "@/content/site";
 
@@ -9,11 +10,14 @@ export function Contact() {
   return (
     <section
       id="contact"
-      data-sec
+      data-seam="grid-drop"
       data-surface="bone"
       aria-labelledby="contact-heading"
-      className="bg-bone px-gutter py-section text-ink"
+      className="relative overflow-hidden bg-bone px-gutter py-section text-ink"
     >
+      {/* Folha INK que desce em patamares, pousando na base de cada bloco. */}
+      <SeamLayer tone="ink" />
+
       <div className="mx-auto w-full max-w-[1280px]">
         <h2
           id="contact-heading"

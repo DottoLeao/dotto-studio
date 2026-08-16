@@ -1,7 +1,10 @@
 import { getLocale, getTranslations } from "next-intl/server";
 
+import { SeamBand, SeamLayer } from "@/components/motion/SeamLayer";
 import { site } from "@/content/site";
 import { fetchPublicRepos } from "@/lib/github";
+
+const BANDS = 4;
 
 export async function OpenSource() {
   const [t, locale, repos] = await Promise.all([
@@ -21,11 +24,22 @@ export async function OpenSource() {
   return (
     <section
       id="code"
-      data-sec
+      data-seam="shutter"
       data-surface="ink"
       aria-labelledby="code-heading"
-      className="bg-ink px-gutter py-section"
+      className="relative overflow-hidden bg-ink px-gutter py-section"
     >
+      {/* Persiana: a folha é só contêiner, quem pinta são as faixas — uma folha
+          pintada por baixo cobriria o que elas deveriam revelar.
+
+          Faixas BONE, a cor que sai do Services. Em ink elas sumiam: faixa ink
+          subindo sobre seção ink é o mesmo tom dos dois lados da borda. */}
+      <SeamLayer>
+        {Array.from({ length: BANDS }, (_, i) => (
+          <SeamBand key={i} index={i} of={BANDS} tone="bone" />
+        ))}
+      </SeamLayer>
+
       <div className="mx-auto w-full max-w-[1280px]">
         <p data-reveal className="eyebrow text-signal">
           {t("eyebrow")}

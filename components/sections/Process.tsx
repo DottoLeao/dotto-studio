@@ -1,5 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 
+import { SeamLayer } from "@/components/motion/SeamLayer";
 import { processSteps } from "@/content/process";
 import { pick } from "@/lib/content";
 import type { Locale } from "@/i18n/routing";
@@ -10,11 +11,15 @@ export function Process() {
 
   return (
     <section
-      data-sec
+      data-seam="flood"
       data-surface="signal"
       aria-labelledby="process-heading"
-      className="bg-signal px-gutter py-section text-ink"
+      className="relative overflow-hidden bg-signal px-gutter py-section text-ink"
     >
+      {/* Folha INK, não signal: quem sobe é a cor nova, então quem se retira é
+          a superfície anterior. É o momento cromático mais forte da página. */}
+      <SeamLayer tone="ink" />
+
       <div className="mx-auto w-full max-w-[1280px]">
         {/* Ink cheio sobre Signal: qualquer opacidade aqui reprova AA. */}
         <p className="eyebrow text-ink">{t("eyebrow")}</p>

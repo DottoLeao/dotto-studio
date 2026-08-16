@@ -180,6 +180,32 @@ html.motion [data-footer-inner] {
   transform: translateY(28px);
 }
 
+/* ---------- camadas de emenda ----------
+   Padrão: cortada a zero, portanto invisível — e os filhos junto, porque
+   clip-path do pai recorta a subárvore. Só sob `html.motion` a folha passa a
+   cobrir, e aí é o runtime que a resolve. Sem JS ou em reduced-motion nenhuma
+   folha esconde nada.
+
+   O fio-guia segue a mesma lei: sem movimento ele não deve aparecer parado no
+   meio da tela. */
+[data-seam-layer],
+[data-seam-rule] {
+  clip-path: inset(0 0 100% 0);
+}
+
+html.motion [data-seam-layer] {
+  clip-path: inset(0 0 0 0);
+}
+
+html.motion [data-seam-rule] {
+  clip-path: none;
+}
+
+/* O fio horizontal nasce sem comprimento: é desenhado por scaleX. */
+html.motion [data-seam-rule][data-seam-axis="y"] {
+  transform: scaleX(0);
+}
+
 /* Sem movimento o chapter card é uma tela só — nunca um vão de rolagem. */
 [data-chapter] {
   --chapter-h: 100svh;

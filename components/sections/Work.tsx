@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 
 import { cases } from "@/content/cases";
+import { SeamRule } from "@/components/motion/SeamLayer";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { pick } from "@/lib/content";
 import type { Locale } from "@/i18n/routing";
@@ -12,10 +13,16 @@ export function Work() {
   return (
     <section
       id="work"
-      data-sec
+      data-seam="ruler"
       data-surface="ink"
-      className="bg-ink px-gutter pt-section pb-section"
+      className="relative overflow-hidden bg-ink px-gutter pt-section pb-section"
     >
+      {/* Sem folha aqui, de propósito: o Chapter termina em ink e o Work é ink,
+          então qualquer folha seria da mesma cor dos dois lados da borda — uma
+          varredura invisível. Nesta fronteira o mecanismo é a régua sozinha:
+          ela risca a tela e desce, e o conteúdo entra atrás dela. */}
+      <SeamRule axis="y" />
+
       <div className="mx-auto w-full max-w-[1280px]">
         <p data-reveal className="eyebrow text-signal">
           {t("eyebrow")}

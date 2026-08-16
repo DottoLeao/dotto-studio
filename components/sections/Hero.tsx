@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <header
       id="top"
-      data-sec
+      data-seam="hero-lift"
       data-hero
       data-surface="ink"
       // min-h-svh, não vh: a barra de endereço do celular não estica o hero.

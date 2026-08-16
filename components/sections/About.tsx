@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
+import { SeamHalf, SeamLayer } from "@/components/motion/SeamLayer";
 import { availabilityIsCurrent, site } from "@/content/site";
 
 const LINKS = [
@@ -17,11 +18,17 @@ export function About() {
   return (
     <section
       id="about"
-      data-sec
+      data-seam="split"
       data-surface="ink"
       aria-labelledby="about-heading"
-      className="bg-ink px-gutter py-section"
+      className="relative overflow-hidden bg-ink px-gutter py-section"
     >
+      {/* A superfície Signal do Process racha ao meio e se afasta. */}
+      <SeamLayer>
+        <SeamHalf side="top" tone="signal" />
+        <SeamHalf side="bottom" tone="signal" />
+      </SeamLayer>
+
       <div className="mx-auto grid w-full max-w-[1280px] gap-14 md:grid-cols-[minmax(0,300px)_minmax(0,1fr)] md:gap-20">
         <div data-reveal="scale">
           <Image

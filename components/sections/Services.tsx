@@ -1,5 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 
+import { SeamLayer } from "@/components/motion/SeamLayer";
 import { services } from "@/content/services";
 import { pick } from "@/lib/content";
 import type { Locale } from "@/i18n/routing";
@@ -11,10 +12,13 @@ export function Services() {
   return (
     <section
       id="services"
-      data-sec
+      data-seam="diagonal"
       data-surface="bone"
-      className="bg-bone px-gutter py-section text-ink"
+      className="relative overflow-hidden bg-bone px-gutter py-section text-ink"
     >
+      {/* Folha INK, a cor que sai do Work: bone sobre bone seria invisível. */}
+      <SeamLayer tone="ink" />
+
       <div className="mx-auto w-full max-w-[1280px]">
         <p data-reveal className="eyebrow text-signal-ink">
           {t("eyebrow")}
