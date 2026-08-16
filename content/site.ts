@@ -4,7 +4,7 @@ export const site = {
   domain: "lorenzodotto.com.br",
   url: "https://lorenzodotto.com.br",
 
-  email: "dottoleao@gmail.com",
+  email: "dottodeveloper@gmail.com",
   whatsapp: "https://wa.me/61451903630",
   phone: "+61 451 903 630",
   github: "https://github.com/DottoLeao",
