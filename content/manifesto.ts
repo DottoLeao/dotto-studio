@@ -36,7 +36,16 @@ export const principles: Principle[] = [
   },
 ];
 
-/** Itens do marquee de capacidades. Duplicados na renderização, não aqui. */
+/**
+ * Itens do marquee de capacidades. Duplicados na renderização, não aqui.
+ *
+ * As duas listas têm de andar na MESMA ordem e no mesmo tamanho: é a mesma
+ * faixa em dois idiomas, não duas faixas diferentes.
+ *
+ * Só entra aqui o que ele de fato construiu e defenderia numa entrevista.
+ * Marquee é vitrine, e vitrine que promete o que não existe é o tipo de dívida
+ * que aparece na primeira conversa técnica.
+ */
 export const capabilities = {
   pt: [
     "Ferramentas internas",
@@ -46,6 +55,23 @@ export const capabilities = {
     "Pipelines de dados",
     "Integrações",
     "Apps de campo, offline-first",
+    "TypeScript ponta a ponta",
+    "Next.js",
+    "PostgreSQL",
+    "Supabase",
+    "Modelagem de dados",
+    "Automação de processo",
+    "Saída de planilha",
+    "Relatório que ninguém monta à mão",
+    "Controle de acesso por linha",
+    "Autenticação e permissões",
+    "Notificação e web push",
+    "PWA instalável",
+    "Teste end-to-end",
+    "APIs REST",
+    "Python para dados",
+    "Docker",
+    "Deploy e observabilidade",
   ],
   en: [
     "Internal tools",
@@ -55,5 +81,22 @@ export const capabilities = {
     "Data pipelines",
     "Integrations",
     "Field apps, offline-first",
+    "TypeScript end to end",
+    "Next.js",
+    "PostgreSQL",
+    "Supabase",
+    "Data modelling",
+    "Process automation",
+    "Getting off spreadsheets",
+    "Reports nobody assembles by hand",
+    "Row-level access control",
+    "Auth and permissions",
+    "Notifications and web push",
+    "Installable PWA",
+    "End-to-end tests",
+    "REST APIs",
+    "Python for data",
+    "Docker",
+    "Deploy and observability",
   ],
 };

@@ -86,6 +86,9 @@
     "switchTo": "EN",
     "switchLabel": "Ver em inglês"
   },
+  "capabilities": {
+    "label": "Capacidades do estúdio"
+  },
   "media": {
     "pending": "IMAGEM PENDENTE"
   },

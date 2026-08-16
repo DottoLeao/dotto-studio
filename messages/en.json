@@ -86,6 +86,9 @@
     "switchTo": "PT",
     "switchLabel": "View in Portuguese"
   },
+  "capabilities": {
+    "label": "Studio capabilities"
+  },
   "media": {
     "pending": "IMAGE PENDING"
   },

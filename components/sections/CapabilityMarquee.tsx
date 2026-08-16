@@ -8,14 +8,26 @@ import {
   useTransform,
   motion,
 } from "motion/react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { capabilities } from "@/content/manifesto";
 import { wrap } from "@/lib/motion";
 import type { Locale } from "@/i18n/routing";
 
-/** Porcentagem da faixa por segundo. Equivale aos 34s por 50% do CSS antigo. */
-const AUTO = 50 / 34;
+/**
+ * Velocidade de leitura, em PIXELS por segundo.
+ *
+ * Antes era porcentagem da faixa, e isso amarrava a velocidade à quantidade de
+ * termos: a lista passou de 7 para 24 itens, a faixa ficou ~3× mais larga, e a
+ * mesma porcentagem por segundo percorreria ~3× mais pixels. O texto sairia
+ * correndo. Em px/s a leitura fica igual, tenha a faixa os termos que tiver.
+ *
+ * 38 px/s é a velocidade que os 7 itens originais tinham na prática.
+ */
+const AUTO_PX = 38;
+
+/** Teto do arremesso, também em px/s, pelo mesmo motivo. */
+const FLING_MAX_PX = 1400;
 
 /** Quanto a faixa desacelera sob o cursor. Zero leria como travamento. */
 const HOVER = 0.22;
@@ -25,6 +37,7 @@ const FLING_DECAY = 0.02;
 
 export function CapabilityMarquee() {
   const locale = useLocale() as Locale;
+  const t = useTranslations("capabilities");
   const items = capabilities[locale];
   const reduced = useReducedMotion();
 
@@ -40,6 +53,13 @@ export function CapabilityMarquee() {
   const fling = useRef(0);
   const speed = useRef(1);
 
+  /** Converte pixels em % da faixa. Declarada antes de quem a usa: o rAF roda
+   *  depois, mas a regra de hooks não aceita a referência adiantada. */
+  const percentPerPixel = () => {
+    const width = trackRef.current?.offsetWidth ?? 0;
+    return width > 0 ? 100 / width : 0;
+  };
+
   useAnimationFrame((_, delta) => {
     if (reduced || dragging.current) return;
 
@@ -47,20 +67,20 @@ export function CapabilityMarquee() {
     // reaparece deslocada como se tivesse pulado.
     const dt = Math.min(delta, 50) / 1000;
 
-    baseX.set(baseX.get() - AUTO * speed.current * dt + fling.current * dt);
+    const avanco = AUTO_PX * speed.current * dt * percentPerPixel();
+    baseX.set(baseX.get() - avanco + fling.current * dt);
     fling.current *= Math.pow(FLING_DECAY, dt);
   });
-
-  const percentPerPixel = () => {
-    const width = trackRef.current?.offsetWidth ?? 0;
-    return width > 0 ? 100 / width : 0;
-  };
 
   return (
     <section
       data-surface="ink"
       className="overflow-hidden border-y border-bone/12 bg-ink py-5"
-      aria-label={items.join(", ")}
+      // Rótulo curto, não a lista inteira. Com 24 termos, `items.join(", ")`
+      // virava o NOME da região — o leitor de tela anunciava 24 itens em vírgula
+      // antes de deixar a pessoa entrar. A primeira cópia da lista já está no
+      // DOM e é lida normalmente; a segunda é aria-hidden.
+      aria-label={t("label")}
     >
       <motion.div
         ref={trackRef}
@@ -103,7 +123,10 @@ export function CapabilityMarquee() {
 
           // Velocidade instantânea em %/s, com teto: um piparote violento
           // manda a faixa para um borrão do qual ela leva segundos para voltar.
-          fling.current = Math.max(-60, Math.min(60, step / dt));
+          // O teto é definido em px/s e convertido, para não afrouxar sozinho
+          // toda vez que a lista de termos cresce.
+          const teto = FLING_MAX_PX * percentPerPixel();
+          fling.current = Math.max(-teto, Math.min(teto, step / dt));
         }}
         onPointerUp={(event) => {
           if (!dragging.current) return;
